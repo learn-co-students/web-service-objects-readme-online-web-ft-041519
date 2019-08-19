@@ -1,4 +1,5 @@
 class TipsController < ApplicationController
+  
   def index
     resp = Faraday.get("https://api.foursquare.com/v2/lists/self/tips") do |req|
       req.params['oauth_token'] = session[:token]
@@ -16,5 +17,6 @@ class TipsController < ApplicationController
     end
 
     redirect_to tips_path
+
   end
 end
